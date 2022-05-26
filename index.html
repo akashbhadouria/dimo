@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="head">
+        <ul>
+           <a href="./index.html" class="a"><li>Home</li></a>
+            <a href="./signup.html" class="a"><li>Signup</li></a>
+             <a href="./login.html" class="a"><li>Login</li></a>
+        </ul>
+
+    </div>
+    </nav>
+
+<!-- Container to show the slideshow -->
+<div id="container"></div>
+
+
+
+<label for="sort">Sort Movies</label>
+<select name="Sort" id="sort" name="sort" onselect="sort()">
+    <option value="LTH">Low To Hi</option>
+    <option value="HTL">Hi To Low</option>
+</select>
+
+
+<!-- Grid container -->
+<div class="cards"></div>
+
+
+</body>
+</html>
+<script src="./index.js"></script>

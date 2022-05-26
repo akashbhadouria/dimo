@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./signup.css">
+    <title>Signup page</title>
+</head>
+<body>
+        <!-- Navbar -->
+        <nav>
+            <div class="head">
+            <ul>
+                <a href="./index.html" class="a"><li>Home</li></a>
+                <a href="./signup.html" class="a"><li>Signup</li></a>
+                 <a href="./login.html" class="a"><li>Login</li></a>
+            </ul>
+    
+        </div>
+        </nav>
+
+           <!-- Signnup Form -->
+           <div class="form_div">
+
+            <form  id="form" onsubmit="submitDetails(event)">
+            <h1>Signup</h1>
+            <input type="text" placeholder="Name" id="name">
+            <br><br>
+            <input type="text" placeholder="Contact" id="contact">
+            <br><br>
+            <input type="text" placeholder="Email" id="email">
+            <br><br>
+            <input type="password" placeholder="Password" id="password">
+            <br><br>
+            <input type="submit" value="Submit" id="submit">
+        </form>
+        </div>
+</body>
+</html>
+
+<script>
+    // Constructor functiion
+    function UserRegistration(name,contact,email,password) {
+        this.name = name;
+        this.contact = contact;
+        this.email = email;
+        this.password = password;
+    }
+
+
+    function submitDetails(event) {
+        event.preventDefault();
+
+    let form  = document.getElementById("form");
+
+    let name = form.name.value;
+    let contact = form.contact.value;
+    let email = form.email.value;
+    let password = form.password.value;
+    
+    // Checking Empty Fields
+    if(name === "" || contact === "" 
+        || email === "" || password === "") {
+            alert("Please fill every field");
+        } else {
+    // Creating Object
+        let newUser = new UserRegistration(name,contact,email,password);
+     
+        const users =  JSON.parse(localStorage.getItem("users")) || [];
+        users.push(newUser);
+ 
+         localStorage.setItem("users",JSON.stringify(users));
+            window.location.href = "./login.html";
+            
+        }
+}
+</script>
